@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Blogs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+  <div class="ui fixed inverted menu ui container">
+    <div class="ui container">
+      <div class="header item">
+        <i class="code icon"></i>
+        Blog Site
+      </div>
+      <a href="/" class="item">
+        Home
+      </a>
+      <a href="/blogs/new" class="item">
+        New Post
+      </a>
+    </div>
+  </div>
+  <div class="ui main text container segment">
+    <div class="ui huge header">
+      Edit <%=FoundBlog.title%>
+    </div>
+    <form class="ui form" action="/blogs/<%=FoundBlog._id%>?_method=PUT" method="post">
+      <div class="field">
+        <label for="">Title</label>
+        <input type="text" name="Blog[title]" placeholder="Blog Title" value="<%=FoundBlog.title%>">
+      </div>
+      <div class="field">
+        <label for="">Image URL</label>
+        <input type="text" name="Blog[image]" placeholder="Image URL" value="<%=FoundBlog.image%>">
+      </div>
+      <div class="field">
+        <label for="">Blog Content</label>
+        <textarea name="Blog[body]" rows="8" cols="80" placeholder="Write here..." value=""><%= FoundBlog.body%></textarea>
+      </div>
+      <button class="ui violet big basic button">Update</button>
+      <!-- <input type="submit" class="ui violet big basic button" placeholder="Update"> -->
+    </form>
+  </div>
+</body>
+
+</html>

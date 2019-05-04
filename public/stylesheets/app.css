@@ -1,0 +1,14 @@
+/* i.icon{
+  font-size: 2em;
+} */
+.container.main{
+  margin-top: 7em;
+}
+.container{
+  width: 500px;
+}
+
+img{
+  height: 420px;
+  width: 420px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Blogs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+  <div class="ui fixed inverted menu ui container">
+    <div class="ui container">
+      <div class="header item">
+        <i class="code icon"></i>
+        Blog Site
+      </div>
+      <a href="/" class="item">
+        Home
+      </a>
+      <a href="blogs/new" class="item">
+        New Post
+      </a>
+    </div>
+  </div>
+  <div class="ui main text container segment">
+    <div class="ui huge header">
+      <h1>
+        <%=FoundBlog.title%>
+      </h1>
+    </div>
+    <div class="ui top attached">
+      <div class="item">
+        <img src="<%=FoundBlog.image%>" class="ui centered rounded image" alt="<%=FoundBlog.title%>">
+      </div>
+      <div class="content">
+        <%=FoundBlog.created.toDateString()%>
+      </div>
+      <div class="description">
+        <%-FoundBlog.body%>
+      </div>
+    </div>
+    <form class="" action="/blogs/<%=FoundBlog._id%>/edit" method="get" style="display:inline;">
+      <button class="ui violet basic button">Update</button>
+    </form>
+    <form class="" action="/blogs/<%=FoundBlog._id%>?_method=DELETE" method="post" style="display:inline;">
+      <button class="ui orange basic button">Delete</button>
+    </form>
+  </div>
+</body>
+
+</html>

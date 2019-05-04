@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Blogs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+  <div class="ui fixed inverted menu ui container">
+    <div class="ui container">
+      <div class="header item">
+        <i class="code icon"></i>
+        Blog Site
+      </div>
+      <a href="/" class="item">
+        Home
+      </a>
+      <a href="/blogs/new" class="item">
+        New Post
+      </a>
+    </div>
+  </div>
+  <div class="ui main text container segment">
+    <h1>Blogs Page</h1>
+  </div>
+  <div class="ui container">
+    <% Blogs.forEach(function(blog){ %>
+    <div class=" ui container segment">
+      <h2>
+        <%=blog.title%>
+      </h2>
+      <img src="<%=blog.image%>" alt="">
+      <span>
+        <%=blog.created.toDateString()%>
+      </span>
+      <p>
+        <%-blog.body.substring(0,100)%>.....
+      </p>
+      <a href="/blogs/<%=blog._id%>" class="ui label">
+        Read More
+        <i class="angle right icon"></i>
+      </a>
+    </div>
+    <%})%>
+  </div>
+</body>
+
+</html>
